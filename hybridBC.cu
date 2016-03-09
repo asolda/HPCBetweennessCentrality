@@ -52,14 +52,14 @@ int main(int argc, char **argv) {
     //key: processor name, value: master_id && slave_ids vector
     std::map<std::string, std::pair<int, std::vector<int> > > subMasterMap;
 	
-	MPI_Init(&argc, &argv);
+    MPI_Init(&argc, &argv);
 
     int CPU_VALUE = atoi(argv[2]);
     int GPU_VALUE = 10 - CPU_VALUE;
 
-	MPI_Comm_size(MPI_COMM_WORLD, &size); 
-	//size = MPI::COMM_WORLD.Get_size();
-	MPI_Comm_rank(MPI_COMM_WORLD, &rank); 
+    MPI_Comm_size(MPI_COMM_WORLD, &size); 
+    //size = MPI::COMM_WORLD.Get_size();
+    MPI_Comm_rank(MPI_COMM_WORLD, &rank); 
     //rank = MPI::COMM_WORLD.Get_rank();
 
     p_name = (char*) malloc(MPI_MAX_PROCESSOR_NAME * sizeof(char));
